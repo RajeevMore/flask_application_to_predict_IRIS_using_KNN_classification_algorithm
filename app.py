@@ -1,6 +1,8 @@
 from flask import Flask,app,jsonify,url_for, render_template, request
 import pickle
 import numpy as np
+from sklearn.datasets import load_iris
+iris_dataset = load_iris()
 
 app=Flask(__name__)
 
@@ -18,9 +20,8 @@ def fun2():
     #x_new = np.array([[5.1, 3.5, 1.4, 0.2]])
     x_new = np.array([[value1, value2, value3, value4]])
     prediction = knn_prediction.predict(x_new)
-    #print("Prediction: {}".format(prediction)) 
-    #print("Predicted target name:{}".format(iris_dataset["target_names"][prediction]))
-    return "Prediction: {}".format(prediction) 
+
+    return  "Prediction: {}".format(prediction)+"Predicted target name:{}".format(iris_dataset["target_names"][prediction])
 
 if __name__ == "__main__" :
      app.run(debug=True)
