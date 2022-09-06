@@ -11,10 +11,10 @@ def fun1():
 
 app.route("/predict_iris", methods = ["post"])
 def fun2():
-    value1 = float(request.form['v1'])
-    value2 = float(request.form['v2'])
-    value3 = float(request.form['v3'])
-    value4 = float(request.form['v4'])
+    value1 = float(request.form['value1'])
+    value2 = float(request.form['value2'])
+    value3 = float(request.form['value3'])
+    value4 = float(request.form['value4'])
     knn_prediction = pickle.load(open('knn_model.pkl','rb'))
     #x_new = np.array([[5.1, 3.5, 1.4, 0.2]])
     x_new = np.array([[value1, value2, value3, value4]])
