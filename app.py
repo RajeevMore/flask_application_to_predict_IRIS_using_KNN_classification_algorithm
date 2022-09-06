@@ -1,15 +1,14 @@
 from flask import Flask,app,jsonify,url_for, render_template, request
-import pandas,pickle
+import pickle
 import numpy as np
-import matplotlib
 
-app = Flask(__name__)
+app=Flask(__name__)
 
-app.route("/")
+@app.route("/")
 def fun1():
     return render_template("info.html")
 
-app.route("/predict_iris", methods = ["post"])
+@app.route("/predict_iris", methods = ["post"])
 def fun2():
     value1 = float(request.form['value1'])
     value2 = float(request.form['value2'])
@@ -24,4 +23,4 @@ def fun2():
     return "Prediction: {}".format(prediction) 
 
 if __name__ == "__main__" :
-    app.run(debug=True)
+     app.run(debug=True)
